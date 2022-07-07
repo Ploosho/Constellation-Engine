@@ -107,7 +107,7 @@ int main() {
 
 		core_window_clear(&windowObj);
 
-		core_graphics_render(&graphicsObj, &shaderObj, cubePositions);
+		core_graphics_render(&graphicsObj, &shaderObj, (float**)cubePositions);
 
 		core_window_update(&windowObj);
 	}
