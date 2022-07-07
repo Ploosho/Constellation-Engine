@@ -46,7 +46,7 @@ int main() {
 	-0.5f,  0.5f, -0.5f,  0.0f, 1.0f
 	};
 
-	vec3* cubePositions[] = {
+	float* cubePositions[] = {
 		(vec3){  0.0f,   0.0f,   0.0f },
 		(vec3){  2.0f,   5.0f, -15.0f },
 		(vec3){ -1.5f,  -2.2f,  -2.5f },
