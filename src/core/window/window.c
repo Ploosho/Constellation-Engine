@@ -1,5 +1,6 @@
 #include "window.h"
 
+#ifndef _WIN32
 int core_window_windowInit(struct core_window_Window* window, int width, int height, char* title, vec4 clearColor) {
 	if (window == NULL) {
 		printf("WARNING: No core_window_Window object was given to core_window_windowInit. You will not be able to use this window object in the future (you will need to).\n");
@@ -53,6 +54,12 @@ int core_window_windowInit(struct core_window_Window* window, int width, int hei
 	return 0;
 }
 
+void core_window_framebufferSizeCallback(GLFWwindow* window, int width, int height) {
+	UNUSED(window);
+	glViewport(0, 0, width, height);
+}
+#endif
+
 int core_window_clear(struct core_window_Window* window) {
 	glClearColor(window->clearColor[0], window->clearColor[1], window->clearColor[2], window->clearColor[3]);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -62,7 +69,7 @@ int core_window_clear(struct core_window_Window* window) {
 
 int core_window_update(struct core_window_Window* window) {
 	if (window == NULL) {
-		printf("ERROR: No core_window_Window object was given to the core_window_refresh function.\n");
+		printf("ERROR: No core_window_Window object was given to the core_window_update function.\n");
 
 		return -1;
 	}
@@ -75,15 +82,4 @@ int core_window_update(struct core_window_Window* window) {
 	}
 
 	return 0;
-}
-
-int core_window_cleanup() {
-	glfwTerminate();
-
-	return 0;
-}
-
-void core_window_framebufferSizeCallback(GLFWwindow* window, int width, int height) {
-	UNUSED(window);
-	glViewport(0, 0, width, height);
 }

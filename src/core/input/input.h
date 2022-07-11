@@ -127,6 +127,7 @@
 
 #define KEY_LAST               KEY_MENU
 
+#ifndef _WIN32
 #define MOD_SHIFT           0x0001
 
 #define MOD_CONTROL         0x0002
@@ -134,6 +135,9 @@
 #define MOD_ALT             0x0004
 
 #define MOD_SUPER           0x0008
+#else
+#define MOD_SUPER           MOD_WIN
+#endif
 
 #define MOD_CAPS_LOCK       0x0010
 
@@ -201,7 +205,11 @@
 #define GAMEPAD_AXIS_LAST          GAMEPAD_AXIS_RIGHT_TRIGGER
 
 // CE
+#ifdef _WIN32
+#include "../window/windowDXGI.h"
+#else
 #include "../window/window.h"
+#endif
 
 // Thirdparty
 #include <GLFW/glfw3.h>

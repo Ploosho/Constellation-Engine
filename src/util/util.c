@@ -40,7 +40,3 @@ const char* util_readFile(char* filePath) {
 
 	return buffer;
 }
-
-int util_time_getTime() {
-	return glfwGetTime();
-}

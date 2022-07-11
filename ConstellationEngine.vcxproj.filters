@@ -4,13 +4,13 @@
     <ClCompile Include="src\main.c">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\core\graphics\graphics.c">
+    <ClCompile Include="src\core\graphics\graphicsDXGI.cpp">
       <Filter>src\core\graphics</Filter>
     </ClCompile>
     <ClCompile Include="src\core\input\input.c">
       <Filter>src\core\input</Filter>
     </ClCompile>
-    <ClCompile Include="src\core\window\window.c">
+    <ClCompile Include="src\core\window\windowDXGI.c">
       <Filter>src\core\window</Filter>
     </ClCompile>
     <ClCompile Include="src\util\util.c">
@@ -30,7 +30,7 @@
     <ClInclude Include="src\core\input\input.h">
       <Filter>src\core\input</Filter>
     </ClInclude>
-    <ClInclude Include="src\core\window\window.h">
+    <ClInclude Include="src\core\window\windowDXGI.h">
       <Filter>src\core\window</Filter>
     </ClInclude>
     <ClInclude Include="src\util\util.h">

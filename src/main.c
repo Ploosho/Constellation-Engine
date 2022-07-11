@@ -46,7 +46,7 @@ int main() {
 	-0.5f,  0.5f, -0.5f,  0.0f, 1.0f
 	};
 
-	vec3* cubePositions[] = {
+	float* cubePositions[] = {
 		(vec3){  0.0f,   0.0f,   0.0f },
 		(vec3){  2.0f,   5.0f, -15.0f },
 		(vec3){ -1.5f,  -2.2f,  -2.5f },
@@ -65,7 +65,7 @@ int main() {
 
 	vec4 clearColor = {0.5f, 0.0f, 0.4f, 1.0f};
 
-	core_window_windowInit(&windowObj, 800, 600, "Constellation Engine Window", clearColor);
+	core_window_windowInit(&windowObj, 800, 600, L"Constellation Engine Window", clearColor);
 
 	struct core_graphics_shader shaderObj;
 	struct core_graphics_obj graphicsObj;
@@ -107,13 +107,17 @@ int main() {
 
 		core_window_clear(&windowObj);
 
+		#ifdef _WIN32
+		core_graphics_render(&windowObj, &graphicsObj, &shaderObj, cubePositions);
+		#else
 		core_graphics_render(&graphicsObj, &shaderObj, cubePositions);
+		#endif
 
 		core_window_update(&windowObj);
 	}
 
 	core_graphics_cleanup(&graphicsObj, &shaderObj);
-	core_window_cleanup();
+	glfwTerminate();
 
 	return 0;
 }

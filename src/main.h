@@ -3,13 +3,16 @@
 
 // Constellation Engine
 #include "core/graphics/graphics.h"
-#include "core/input/input.h"
+#ifdef _WIN32
+#include "core/window/windowDXGI.h"
+#else
 #include "core/window/window.h"
+#endif
+#include "core/input/input.h"
 
 // Thirdparty
-#include <glad/glad.h>
+#include <gl/glew.h>
 #include <GLFW/glfw3.h>
-
 #include <cglm/cglm.h>
 
 // Standard

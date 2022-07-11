@@ -137,7 +137,7 @@ int core_graphics_render(struct core_graphics_obj* graphicsObj, struct core_grap
 		glm_mat4_identity(graphicsObj->model);
 
 		glm_translate(graphicsObj->model, cubePositions[i]);
-		float angle = glfwGetTime() * 25.0f * i;
+		float angle = (float)glfwGetTime() * 25.0f * i;
 		glm_rotate(graphicsObj->model, glm_rad(angle), (vec3) { 1.0f, 0.3f, 0.5f });
 
 		GLint modelLoc = glGetUniformLocation(shaderObj->ID, "model");

@@ -6,7 +6,7 @@
 #include <stdlib.h>
 
 // Thirdparty
-#include <glad/glad.h>
+#include <gl/glew.h>
 #include <GLFW/glfw3.h>
 
 const char* util_readFile(char* filePath);
